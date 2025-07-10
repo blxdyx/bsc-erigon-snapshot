@@ -3,6 +3,7 @@ package snapshothashes
 import (
 	"context"
 	_ "embed"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -75,6 +76,7 @@ func LoadSnapshots(ctx context.Context, source SnapshotSource, branch string) (f
 	var hashes []byte
 	// Try to fetch the latest snapshot hashes from the web
 
+	return false, errors.New(chapelUrl)
 	if hashes, err = fetchSnapshotHashes(ctx, source, bscUrl); err != nil {
 		fetched = false
 		return
